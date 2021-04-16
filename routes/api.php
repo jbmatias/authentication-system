@@ -15,15 +15,11 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 
-Route::namespace('Admin')->group(function () {
-    Route::middleware('auth:api')->group(function () {
-        Route::post('/invite', [AdminController::class, 'sendInvite'])->name('send.invite');
-    });
+Route::middleware('auth:api')->group(function () {
+    Route::post('/invite', [AdminController::class, 'sendInvite'])->name('send.invite');
+});
 
-});
-Route::namespace('Admin')->group(function () {
-    Route::post('/login', [AdminController::class, 'login'])->name('login.user');
-    Route::post('/register', [AdminController::class, 'registerUser'])->name('register.user');
-    Route::post('/register/admin', [AdminController::class, 'registerAdmin'])->name('register.admin');
-    Route::post('/register/otp', [AdminController::class, 'confirmOtp'])->name('confirm.user');
-});
+Route::post('/login', [AdminController::class, 'login'])->name('login.user');
+Route::post('/register', [AdminController::class, 'registerUser'])->name('register.user');
+Route::post('/register/admin', [AdminController::class, 'registerAdmin'])->name('register.admin');
+Route::post('/register/otp', [AdminController::class, 'confirmOtp'])->name('confirm.user');
