@@ -15,10 +15,6 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function () {
-    Route::post('/invite', [AdminController::class, 'sendInvite'])->name('send.invite');
-});
-
 Route::namespace('Admin')->group(function () {
     Route::middleware('auth:api')->group(function () {
         Route::post('/invite', [AdminController::class, 'sendInvite'])->name('send.invite');
