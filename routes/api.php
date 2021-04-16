@@ -29,5 +29,5 @@ Route::namespace('Admin')->group(function () {
     Route::post('/login', [AdminController::class, 'login'])->name('login.user');
     Route::post('/register', [AdminController::class, 'registerUser'])->name('register.user');
     Route::post('/register/admin', [AdminController::class, 'registerAdmin'])->name('register.admin');
-    Route::post('/register/otp', [AdminController::class, 'confirmOtp'])->name('register.user');
+    Route::post('/register/otp', [AdminController::class, 'confirmOtp'])->name('confirm.user');
 });
